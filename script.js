@@ -1,4 +1,5 @@
 let mediaRecorder;
+let screenStream;
 let recordedChunks = [];
 
 const startButton = document.getElementById('start');
@@ -21,6 +22,8 @@ function startRecording() {
 
   navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
     .then(stream => {
+      screenStream = stream;
+
       mediaRecorder = new MediaRecorder(stream);
 
       mediaRecorder.ondataavailable = function(event) {
@@ -36,6 +39,9 @@ function startRecording() {
 
         const videoBlob = new Blob(recordedChunks, { type: 'video/webm' });
         videoElement.src = URL.createObjectURL(videoBlob);
+
+        // Stop both screen sharing and media recording streams
+        screenStream.getTracks().forEach(track => track.stop());
       };
 
       mediaRecorder.start();
@@ -54,13 +60,19 @@ function stopRecording() {
 }
 
 function downloadRecording() {
+  const currentDate = new Date();
+  const dateString = currentDate.toISOString().replace(/:/g, "-").split(".")[0];
+  const fileName = `recordscreen.me-${dateString}.webm`;
+
   const blob = new Blob(recordedChunks, { type: 'video/webm' });
   const url = URL.createObjectURL(blob);
+
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'recording.webm';
+  a.download = fileName;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+
   URL.revokeObjectURL(url);
 }
