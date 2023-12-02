@@ -20,35 +20,40 @@ function startRecording() {
   stopButton.disabled = false;
   recordedChunks = [];
 
-  navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
-    .then(stream => {
-      screenStream = stream;
+  // Check if the getDisplayMedia method is available
+  if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
+    navigator.mediaDevices.getDisplayMedia({ video: true, audio: true })
+      .then(stream => {
+        screenStream = stream;
 
-      mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder = new MediaRecorder(stream);
 
-      mediaRecorder.ondataavailable = function(event) {
-        if (event.data.size > 0) {
-          recordedChunks.push(event.data);
-        }
-      };
+        mediaRecorder.ondataavailable = function(event) {
+          if (event.data.size > 0) {
+            recordedChunks.push(event.data);
+          }
+        };
 
-      mediaRecorder.onstop = function() {
-        startButton.disabled = false;
-        stopButton.disabled = true;
-        downloadButton.disabled = false;
+        mediaRecorder.onstop = function() {
+          startButton.disabled = false;
+          stopButton.disabled = true;
+          downloadButton.disabled = false;
 
-        const videoBlob = new Blob(recordedChunks, { type: 'video/webm' });
-        videoElement.src = URL.createObjectURL(videoBlob);
+          const videoBlob = new Blob(recordedChunks, { type: 'video/webm' });
+          videoElement.src = URL.createObjectURL(videoBlob);
 
-        // Stop both screen sharing and media recording streams
-        screenStream.getTracks().forEach(track => track.stop());
-      };
+          // Stop both screen sharing and media recording streams
+          screenStream.getTracks().forEach(track => track.stop());
+        };
 
-      mediaRecorder.start();
-    })
-    .catch(err => {
-      console.error('Error accessing screen:', err);
-    });
+        mediaRecorder.start();
+      })
+      .catch(err => {
+        console.error('Error accessing screen:', err);
+      });
+  } else {
+    alert('Screen recording is not supported on this device/browser.');
+  }
 }
 
 function stopRecording() {
