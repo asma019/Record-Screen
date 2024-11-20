@@ -1,7 +1,7 @@
 
 # Record Screen
 
-![Record Screen](https://recordscreen.me/favicon.ico)
+![Record Screen](https://recordscreen.me/recordscreen.png)
 
 **Record Screen** is a free and open-source online screen recording tool. It allows users to capture and share their screens effortlessly without requiring any software installation. With its user-friendly interface and high-quality output, it's ideal for tutorials, presentations, and more.
 
