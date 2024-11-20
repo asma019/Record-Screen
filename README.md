@@ -54,8 +54,8 @@ Ensure you have a modern browser installed.
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/record-screen.git
-   cd record-screen
+   git clone https://github.com/asma019/Record-Screen.git
+   cd Record-Screen
    ```
 
 2. Open the `index.html` file in your browser to use the application.
