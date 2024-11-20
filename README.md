@@ -1,42 +1,57 @@
-# Free Record Screen
+# Record Screen
 
-Free Record Screen is a **free and open-source** tool to record your screen directly from your browser. No software installation is required. Easily capture your screen for tutorials, presentations, or any other use case and download the recordings in high quality.
+![Record Screen](https://recordscreen.me/favicon.ico)
 
-**[View Demo](https://recordscreen.me)**  
-**[GitHub Repository](https://github.com/asma019/Record-Screen)**
+**Record Screen** is a free and open-source online screen recording tool. It allows users to capture and share their screens effortlessly without requiring any software installation. With its user-friendly interface and high-quality output, it's ideal for tutorials, presentations, and more.
 
----
+## 🌐 Demo
 
-## Features
-
-- **No Installations Required:** Works entirely in your browser.
-- **High-Quality Recording:** Crisp video output in `.webm` format.
-- **User-Friendly Interface:** Intuitive buttons to start, stop, and download recordings.
-- **Privacy First:** No data is uploaded to any server.
-- **Completely Free:** No hidden charges or subscriptions.
+Try it live at: [https://recordscreen.me](https://recordscreen.me)
 
 ---
 
-## How It Works
+## 📄 Features
 
-1. **Start Recording:** Click the "Start Recording" button to begin capturing your screen.
-2. **Stop Recording:** Stop the recording at any time with the "Stop Recording" button.
-3. **Download Recording:** Save the recording by clicking the "Download" button.
+- **No Installation Required**: Works directly in your browser.
+- **User-Friendly**: Simple controls to start, stop, and download recordings.
+- **High-Quality Output**: Outputs crisp and clear screen recordings.
+- **Privacy-Friendly**: No data is uploaded or stored on the server.
+- **Free Forever**: Enjoy all features without any cost.
 
 ---
 
-## Getting Started
+## 📖 Documentation
 
-Follow these steps to get started with Free Record Screen:
+### 🛠 How It Works
+
+1. Click **Start Recording** to begin capturing your screen.
+2. Use the **Stop Recording** button to end the recording.
+3. Save your recording by clicking **Download**.
+
+### ⚙️ Technical Details
+
+- **Frontend**:
+  - HTML for structure
+  - CSS for styling
+  - JavaScript for recording functionality
+
+- **Browser Support**:
+  - Requires a modern browser that supports `navigator.mediaDevices.getDisplayMedia`.
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
 
 ### Prerequisites
 
-- A modern browser that supports the `MediaRecorder` API (e.g., Chrome, Edge).
-- An internet connection to load the app.
+Ensure you have a modern browser installed.
 
-### Usage
+### Installation
 
-1. Clone the repository:
+1. Clone this repository:
+
    ```bash
-   git clone https://github.com/asma019/Record-Screen.git
-   cd Record-Screen
+   git clone https://github.com/your-username/record-screen.git
+   cd record-screen
